@@ -1,0 +1,4 @@
+FROM docusaurus-plus-develop-image
+
+COPY ./workspace /workspace
+
