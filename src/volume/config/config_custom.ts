@@ -30,4 +30,9 @@ export const config_custom: Config = {
     themeConfig: themeConfig,
     themes: themes,
     url: `https://${github_username}.github.io`,
+
+    future: {
+        v4: true,
+        experimental_faster: true,
+    },
 }
