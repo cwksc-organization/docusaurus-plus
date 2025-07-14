@@ -33,6 +33,10 @@ jobs:
     - name: Load container image
       if: steps.cache-container-image.outputs.cache-hit == 'true'
       run: docker load < docusaurus-plus-develop-image.tar
+
+    - name: Clean build directory
+      run: |
+        rm -rf ./build || true
     
     - name: Make build directory
       run: mkdir -p build
