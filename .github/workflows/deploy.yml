@@ -34,6 +34,9 @@ jobs:
       if: steps.cache-container-image.outputs.cache-hit == 'true'
       run: docker load < docusaurus-plus-develop-image.tar
 
+    - name: Make build dir
+      run: mkdir -p build
+
     - name: Build
       working-directory: ./src/
       run: >
@@ -46,7 +49,7 @@ jobs:
         --volume "./volume/run.sh:/workspace/docusaurus-plus/run.sh"
         --volume "./volume/src/:/workspace/docusaurus-plus/src/"
         --volume "./volume/static/:/workspace/docusaurus-plus/static/"
-        --volume "./../build/:/workspace/docusaurus-plus/build/"
+        --volume "./../../build/:/workspace/docusaurus-plus/build/"
         docusaurus-plus-develop-image
         npm run build
 
